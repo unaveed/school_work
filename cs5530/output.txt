@@ -1,0 +1,235 @@
+Script started on Wed 25 Feb 2015 11:16:02 AM MST
+]0;naveed@lab1-3:~[naveed@lab1-3 ~]$ emacs query.txt[20G[3Pvi[32G[22G[1@m[33G[20G[1@nano[34G[20G[1@gedit[35G[20Gmysql -u cs5530 -p -h georgia.eng.utah.edu cs5530db
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4157
+Server version: 5.1.73-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+[?1034hmysql> source query.txt
++------------+
+| MAX(s.age) |
++------------+
+|         99 |
++------------+
+1 row in set (0.00 sec)
+
++--------------------+------+
+| sname              | gpa  |
++--------------------+------+
+| Pierson, E.        |  3.5 |
+| Scott, Kim J.      |  3.8 |
+| Sather, Roberto B. |  2.2 |
+| Stanley, Leotha T. |  3.6 |
+| Jones, David S.    |  3.5 |
+| Paul, Mary W.      |  3.6 |
+| Soong, V.          |  3.5 |
+| Kellerman, S.      |  2.9 |
+| Korpel, E.         |  3.5 |
+| Emile, R.          |    2 |
+| Carter, Jimmy      |  3.5 |
+| Kissinger, Henry   |  3.4 |
+| Andrews, R.        |  2.8 |
+| Auen, B.           |  2.7 |
+| Shoemaker, A.      |  3.5 |
+| Fy, Clara I.       |    2 |
+| Heilskov, G.       |  2.5 |
+| Baskett, Wayse T.  |  2.1 |
++--------------------+------+
+18 rows in set (0.00 sec)
+
++-------------------+----------------------+
+| sname             | dname                |
++-------------------+----------------------+
+| Ford, Gerald      | Chemical Engineering |
+| Austin, G.        | Chemical Engineering |
+| Mathews, John W.  | Chemical Engineering |
+| Dunbar, D.        | Civil Engineering    |
+| Rosemeyer, S.     | Civil Engineering    |
+| Atny, Mary H.     | Civil Engineering    |
+| Glitch, R.        | Civil Engineering    |
+| Ziebart, F.       | Civil Engineering    |
+| Sulfate, Barry M. | Computer Sciences    |
+| Cheong, R.        | Computer Sciences    |
+| Thorton, James Q. | Computer Sciences    |
+| Gooch             | Computer Sciences    |
+| Smith, L.         | Computer Sciences    |
+| Zappa, F.         | Mathematics          |
+| Ghandi, I.        | Mathematics          |
+| Uoiea, Z.         | Mathematics          |
+| Sulfate, Barry M. | Sanitary Engineering |
++-------------------+----------------------+
+17 rows in set (0.01 sec)
+
++-----------+
+| sname     |
++-----------+
+| Zappa, F. |
++-----------+
+1 row in set (0.00 sec)
+
++------------------------+-------------+------------------------+
+| dname                  | Average Age | Largest Age Difference |
++------------------------+-------------+------------------------+
+| Chemical Engineering   |     29.3636 |                     42 |
+| Civil Engineering      |     27.2500 |                     80 |
+| Computer Sciences      |     25.0417 |                     38 |
+| Industrial Engineering |     27.7000 |                     65 |
+| Mathematics            |     30.6316 |                     83 |
+| Sanitary Engineering   |     19.0000 |                      0 |
++------------------------+-------------+------------------------+
+6 rows in set (0.00 sec)
+
++-------------------+
+| sname             |
++-------------------+
+| Auen, B.          |
+| Baskett, Wayse T. |
+| Carter, Jimmy     |
+| Heilskov, G.      |
+| Kellerman, S.     |
+| Paul, Mary W.     |
+| Scott, Kim J.     |
+| Soong, V.         |
++-------------------+
+8 rows in set (0.00 sec)
+
++-------+
+| count |
++-------+
+|     4 |
++-------+
+1 row in set (0.00 sec)
+
++-------------------+
+| MAX(s.sname)      |
++-------------------+
+| Jacobs, T.        |
+| Pierson, E.       |
+| Sulfate, Barry M. |
+| Zeene, Ben N.     |
++-------------------+
+4 rows in set (0.00 sec)
+
++------------+
+| sname      |
++------------+
+| Ghandi, I. |
++------------+
+1 row in set (0.00 sec)
+
++-----+---------------------+------+
+| sid | sname               | gpa  |
++-----+---------------------+------+
+|  66 | Altenhaus, Stuart   |  2.8 |
+|  74 | Andrus, J.          |  3.7 |
+|  96 | Birch, M.           |  3.5 |
+|  23 | Bomber, C.          |  3.2 |
+|  36 | Burroughs, Susan S. |    3 |
+|  60 | Calcmity, J.        |  2.6 |
+|  70 | Caucutt, B.         |    3 |
+|  33 | Chao, Tsechih       |  3.6 |
+|  79 | Evert, Chris        |  3.9 |
+|  64 | Fred, Edwin B.      |    4 |
+|  18 | Gooch               |  1.4 |
+|  29 | Hamilton, S.        |  2.8 |
+|  34 | Kasten, Norman L.   |  2.5 |
+|  61 | Kennedy, Ed         |  2.3 |
+|  32 | Liu, Huihusan       |  3.9 |
+|  54 | Maximillian         |    3 |
+|  85 | Mayer, N.           |  3.5 |
+|  48 | Natividad, A.       |    4 |
+|  73 | Quarnty, G.         |    4 |
+|  47 | Roger, Blotter N.   |  1.9 |
+|  81 | Smith, Ike Z.       |  1.1 |
+|   9 | Smith, Joyce A.     |    2 |
+|   3 | Zeene, Ben N.       |  3.9 |
+|  76 | Zorhoff, C.         |    3 |
++-----+---------------------+------+
+24 rows in set (0.01 sec)
+
++----------------------+---------+
+| dname                | numphds |
++----------------------+---------+
+| Sanitary Engineering |       3 |
++----------------------+---------+
+1 row in set (0.00 sec)
+
++--------------+
+| count(s.sid) |
++--------------+
+|          104 |
++--------------+
+1 row in set (0.00 sec)
+
++---------------------+------------+
+| sname               | max(s.gpa) |
++---------------------+------------+
+| News, Nightly       |        1.9 |
+| Zappa, F.           |          4 |
+| Form, Clara O.      |        3.5 |
+| Sulfate, Barry M.   |        3.7 |
+| Scott, Kim J.       |          4 |
+| Zeene, Ben N.       |        3.9 |
+| Sather, Roberto B.  |          4 |
+| Paul, Mary W.       |        3.6 |
+| Soong, V.           |        3.6 |
+| Cheong, R.          |          4 |
+| Borchart, Sandra L. |        3.9 |
+| Thorton, James Q.   |        2.7 |
+| Jacobs, T.          |        3.9 |
+| Dunbar, D.          |        3.4 |
+| Pierson, E.         |        3.5 |
+| Smith, Ike Z.       |        1.1 |
+| Kirk, J.            |        2.2 |
+| Kool, Joseph F.     |        3.7 |
+| Smith, L.           |        2.5 |
+| Barnes, J.          |        2.3 |
+| Villa-lobos, M.     |        3.7 |
+| Kennedy, Ed         |        3.5 |
+| Carter, Jimmy       |        3.5 |
+| Kissinger, Henry    |        3.4 |
+| Ford, Gerald        |        3.5 |
+| Ghandi, I.          |        3.5 |
+| Fred, Edwin B.      |          4 |
+| Maximillian         |          3 |
+| Longlastname, A.    |          4 |
++---------------------+------------+
+29 rows in set (0.00 sec)
+
++--------------+
+| count(s.sid) |
++--------------+
+|          104 |
++--------------+
+1 row in set (0.00 sec)
+
++--------------+
+| count(s.sid) |
++--------------+
+|          104 |
++--------------+
+1 row in set (0.00 sec)
+
++--------------+
+| count(s.sid) |
++--------------+
+|          104 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> quit;
+Bye
+]0;naveed@lab1-3:~[naveed@lab1-3 ~]$ ^Dexit
+
+Script done on Wed 25 Feb 2015 11:16:33 AM MST

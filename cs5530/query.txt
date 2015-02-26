@@ -1,0 +1,65 @@
+select MAX(s.age) from student s;
+
+select s.sname, s.gpa 
+from student s, enroll e
+where s.sid = e.sid 
+and e.cno = 302;
+
+select s.sname, m.dname from student s, major m, enroll e, course c where s.sid = m.sid and e.sid = m.sid and e.cno = c.cno and c.cname like '%Geometry%';
+
+select s.sname 
+from student s, enroll e1, enroll e2
+where s.sid = e1.sid and e1.dname = 'Computer Sciences' 
+and s.sid = e2.sid and e2.dname = 'Mathematics';
+
+select m.dname, AVG(s.age) as 'Average Age', MAX(s.age) - MIN(s.age) as 'Largest Age Difference'
+from student s, major m 
+where s.sid = m.sid 
+group by m.dname;
+
+select s.sname 
+from student s, enroll e, section sec 
+where s.sid = e.sid 
+and e.cno = (select sec.cno from section sec where sec.pname = 'Smith, S.') 
+and e.sectno = (select sec.sectno from section sec where sec.pname = 'Smith, S.') 
+group by s.sname;
+
+select count(*) as count 
+from student s, major m1, major m2 
+where s.sid = m1.sid 
+and s.sid = m2.sid 
+and m1.dname>m2.dname;
+
+select MAX(s.sname) 
+from student s, major m1, major m2 
+where s.sid = m1.sid and 
+s.sid = m2.sid and 
+m1.dname<>m2.dname 
+group by s.sname;
+
+select s.sname 
+from student s 
+where s.age = (select max(s1.age) from student s1 where s1.year = 1);
+
+select s.sid, s.sname, s.gpa 
+from student s, enroll e 
+where s.sid = e.sid and e.dname = 'Civil Engineering' 
+group by s.sname;
+
+select * from dept d 
+where not exists 
+(select m.sid 
+from major m, enroll e 
+where m.sid = e.sid 
+and m.dname = d.dname and 
+e.dname = 'Computer Sciences');
+
+select count(s.sid) from student s;
+
+select s.sname, max(s.gpa) from student s group by s.age;
+
+select count(s.sid) from student s;
+
+select count(s.sid) from student s;
+
+select count(s.sid) from student s;

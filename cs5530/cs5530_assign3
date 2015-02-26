@@ -1,0 +1,60 @@
+A.
+CREATE TABLE Emp(eid INTEGER, 
+		 ename VARCHAR(30), 
+		 age INTEGER, 
+		 salary FLOAT, 
+		 PRIMARY KEY(eid));
+
+CREATE TABLE Works(eid INTEGER, 
+		did INTEGER, 
+		pct_time FLOAT, 
+		PRIMARY KEY(eid, did), 
+		FOREIGN KEY (eid) REFERENCES Emp(eid), 
+		FOREIGN KEY (did) REFERENCES Dept(did));
+
+CREATE TABLE Dept(did INTEGER,
+		  budget FLOAT,
+		  managerid INTEGER,
+		  PRIMARY KEY(did));
+
+B.
+1)
+CREATE TABLE Emp(eid INTEGER, 
+		 ename VARCHAR(30), 
+		 age INTEGER, 
+		 salary FLOAT, 
+		 PRIMARY KEY(eid)
+		 CHECK(salary > 2000));
+2)
+ALTER TABLE Dept ADD CONSTRAINT ManagerIsEmp
+FOREIGN KEY(managerid) REFERENCES Emp(eid)
+
+3)
+CREATE ASSERTION ManagerMakesMore
+CHECK(NOT EXISTS 
+		 (SELECT * FROM Emp AS e, Works AS w, Dept AS d
+		  WHERE e.eid = w.eid AND
+		  w.did = d.did AND
+		  e.salary > (SELECT salary
+			      FROM Emp AS e1
+			      WHERE d.managerid = e1.eid)));
+
+4)
+CREATE ASSERTION ApptTotalPercent
+CHECK(NOT EXISTS
+		 (SELECT Emp.eid
+		  FROM Emp, Works
+		  WHERE Emp.eid = Works.eid
+		  GROUP BY Emp.eid
+		  HAVING SUM(pct_time > 100));
+
+
+5)
+CREATE ASSERTION TwoManagers
+CHECK(NOT EXISTS
+		(SELECT * FROM Dept GROUP BY (Dept.managerid)
+
+6)
+CREATE ASSERTION DeptSmall
+CHECK((SELECT COUNT(Works.eid) 
+	      FROM Works) <= 50));
